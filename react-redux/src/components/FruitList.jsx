@@ -1,20 +1,11 @@
+import { useSelector } from "react-redux"
 import AddingFruit from "./AddingFruit"
 import Fruit from "./Fruit"
 
 const FruitList = () => {
 
-    const fruits = [
-        {
-            id: 1,
-            name: "Pinapple",
-            quantity: 5
-        },
-        {
-            id: 2,
-            name: "Apple",
-            quantity: 12
-        }
-    ]
+    //fruitReducers because it has the index.js that combines all reducers
+    const fruits = useSelector((state) => state.fruitReducers.fruits)
 
     return <>
         <h1>Fruits List</h1>
