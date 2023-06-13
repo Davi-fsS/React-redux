@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { actions } from "../actions/fruits.action";
 
 const AddingFruit = () => {
 
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(0);
+
+    const dispach = useDispatch()
 
     const addFruit = (e) => {
         e.preventDefault();
@@ -14,7 +18,7 @@ const AddingFruit = () => {
             quantity
         }
 
-        console.log(fruit)
+        dispach(actions.add(fruit))
     }
 
     return <form onSubmit={addFruit}>
